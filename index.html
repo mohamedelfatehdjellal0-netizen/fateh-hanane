@@ -31,8 +31,8 @@
         
         /* العداد التنازلي الكبير للمفاجأة */
         #transition-countdown {
-            display: none; font-size: 130px; font-weight: 900; color: #fff;
-            text-shadow: 0 0 20px rgba(255,255,255,0.6);
+            display: none; font-size: 140px; font-weight: 900; color: #fff;
+            text-shadow: 0 0 25px rgba(255,255,255,0.7);
             animation: scalePulse 1s infinite ease-in-out;
         }
 
@@ -77,7 +77,7 @@
         #countdown { font-size: 24px; font-weight: 800; color: #d63384; word-spacing: 5px; }
         .countdown-title { margin-top: 0; color: #d63384; font-weight: 700; direction: rtl; margin-bottom: 10px; }
 
-        /* الفيديو تلقائي */
+        /* حاوية الفيديو */
         #video-container { display: none; margin-top: 35px; text-align: center; position: relative; z-index: 100; animation: fadeIn 1.2s; }
         video { width: 100%; max-width: 650px; border-radius: 25px; border: 6px solid white; box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
 
@@ -85,11 +85,12 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.12); } 100% { transform: scale(1); } }
-        @keyframes scalePulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.15); opacity: 1; } }
+        @keyframes scalePulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.18); opacity: 1; } }
     </style>
 </head>
 <body>
 
+    <!-- شاشة القفل والعداد المدمج -->
     <div id="lock-screen">
         <div class="lock-box" id="input-box">
             <div class="heart-pulse">❤️</div>
@@ -98,11 +99,13 @@
             <input type="password" id="passwordInput" placeholder="*******" maxlength="10">
             <button onclick="checkPassword()">افتحي المفاجأة ❤️</button>
         </div>
+        <!-- عداد الانتقال 3 2 1 -->
         <div id="transition-countdown">3</div>
     </div>
 
     <canvas id="celebration-canvas"></canvas>
 
+    <!-- المحتوى الرئيسي -->
     <div id="main-content">
         <div class="message-box">
             <h1>إلى حلالي، إلى زوجتي، وأميرة داري.. إلى حبيبتي حنان ❤️</h1>
@@ -110,10 +113,11 @@
             <p>يا حنان، كي نغمض عيني ونشوف كيفاش لحقنا لهذي الليلة، نتفكر هذاك النهار اللي تبدلت فيه حياتي، في 18 مارس 2023. هذاك النهار اللي عرفتك فيه، حسيت باللي ربي بعثلي النور اللي كان ناقص في طريقي. ومن هذاك الوقت، وأنا حاطك في عيني، وكنت راجل معاك ومع نفسي كي قررت ندخل من الباب الواسع، وفي 08 سبتمبر 2023 جيت وطلبت يدك من باباك، وكنت أسعد إنسان في الدنيا كي وافقو وعطاوني أغلى جوهرة عندهم. زادت فرحتنا وكبرت مسؤوليتنا في 19 أوت 2024 نهار خطبتنا، واليوم.. في هذي الليلة، ليلة 6 سبتمبر 2026، رانا كملنا نص ديننا، والحمد لله اللي جمعنا في الحلال.</p>
             <p>حبيبتي، الرحلة اللي جازتنا كانت فيها أيام حلوة وأيام فيها ضغط وتخمام، وحنا في الأخير بشر، نغلطو ونصيبو. على هذي، وفي هذي الليلة اللي تعتبر بداية عمر جديد، حاب نقولك من أعماق قلبي: إذا في يوم من الأيام، من نهار عرفتك لليوم، غلطت معاك، ولا قلت كلمة جرحتك بلا ما نقصد، ولا زيرت عليك في كاش موقف.. راني نطلب منك السماح، ونتمنى قلبك الأبيض يسامحني. وفي المقابل، راني نشهد ربي ونشهدك، باللي إذا نتي غلطتي في حقي كاش نهار، بقصد ولا بلا قصد، راكي مسامحة دنيا وآخرة. قلبي راهو صافي حليب من جهتك، وما فيه غير الحب ليك.</p>
             <p>من هذي اللحظة، ومن هذي الليلة بالذات، حاب نفتحو صفحة بيضاء نقية.. صفحة ما فيهاش الماضي وعتابو، فيها غير أنا ونتي، ومستقبلنا اللي راح نبنيوه مع بعض.</p>
-            <p>يا حنان، راني حابك تكوني ديك الزوجة الصالحة، المرأة اللي تملالي عيني وداري. كي نقولك حابك تسمعلي هدرتي وتكوني طائعة وتحت أمري، مانيش نقولها باش نفرض قوة ولا تسلط، حاشا.. راني نقولها لأنو دارنا لازم تتأسس على الاحترام والكلمة الواحدة، ولأنو الراجل كي يلقى مرتو تحترمو وتكبر بيه وتسمع كلامو في طاعة ربي، يحطها تاج فوق راسو، ويفديها بروحه, ويخليها سيدة النساء.</p>
+            <p>يا حنان، راني حابك تكوني ديك الزوجة الصالحة، المرأة اللي تملالي عيني وداري. كي نقولك حابك تسمعلي هدرتي وتكوني طائعة وتحت أمري، مانيش نقولها باش نفرض قوة ولا تسلط, حاشا.. راني نقولها لأنو دارنا لازم تتأسس على الاحترام والكلمة الواحدة، ولأنو الراجل كي يلقى مرتو تحترمو وتكبر بيه وتسمع كلامو في طاعة ربي، يحطها تاج فوق راسو، ويفديها بروحه, ويخليها سيدة النساء.</p>
             <p>أنا راني هنا باش نكون ظهرك اللي تتسندي عليه، سترك، وحاميك في هذي الدنيا. ونتي كونيلي السكن، الراحة، والقلب الحنين اللي نلقاه كي نرجع عيان من برا. كونيلي الزوجة اللي تحفظني في مالي وعرضي، واللي تبني معايا عائلة صالحة يرضى عليها ربي.</p>
             <p>راني فخور بيك، وفرحان بزاف كي راكي مرتي وحلالي. ربي يبارك لنا في هذي الليلة، ويبارك علينا، ويجمع بيناتنا في خير.</p>
 
+            <!-- العداد التنازلي -->
             <div class="countdown-container">
                 <h3 class="countdown-title">⏱️ المتبقي على ليلة عمرنا:</h3>
                 <div id="countdown">
@@ -127,6 +131,7 @@
             <div class="signature">نحـبك يا نوارة حيـاتي، وألف مبروك علينـا 💖</div>
         </div>
 
+        <!-- حاوية الفيديو (تفتح تلقائياً في السيكونس) -->
         <div id="video-container">
             <video id="myVideo" controls playsinline>
                 <source src="video.mp4" type="video/mp4">
@@ -151,7 +156,7 @@
             if (e.key === 'Enter') checkPassword();
         });
 
-        // سيكونس العداد التنازلي 3 2 1
+        // سيكونس العداد 3 2 1
         function startTransitionSequence() {
             document.getElementById('input-box').style.display = 'none';
             const countdownEl = document.getElementById('transition-countdown');
@@ -170,28 +175,26 @@
             }, 1000);
         }
 
-        // تشغيل المحارق ثم الورود وفتح الرسالة والڤيديو
+        // تشغيل المحارق ثم الورود والمحتوى
         function triggerCelebrationFlow() {
-            // 1. ابدأ أنيميشن المحارق والألعاب النارية ديريكت
             animationPhase = 'fireworks';
             startCanvasAnimation();
 
-            // 2. مورا 3.5 ثواني تاع محارق، اقلبها ورود وافتح الميساج والڤيديو تلقائياً
+            // المحارق تطردق لمدة 3.5 ثانية ثم تقلب ورود ويفتح الميساج والفيديو
             setTimeout(() => {
                 animationPhase = 'roses';
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 document.getElementById('video-container').style.display = 'block';
                 
-                // تشغيل الفيديو تلقائياً تلقائياً
                 const vid = document.getElementById('myVideo');
                 if(vid) {
-                    vid.play().catch(err => console.log("Auto-play auto-blocked by browser, waiting for interaction."));
+                    vid.play().catch(err => console.log("القرص المدمج للمتصفح طلب تفاعل لتشغيل الصوت تلقائياً."));
                 }
             }, 3500);
         }
 
-        // كود العداد التنازلي لليلة العمر
+        // عداد ليلة العمر
         const weddingDate = new Date("September 6, 2026 00:00:00").getTime();
         const timer = setInterval(function() {
             const now = new Date().getTime();
@@ -207,7 +210,7 @@
             document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
         }, 1000);
 
-        // محرك الأنميشن المطور (محارق و ورود)
+        // نظام الأنميشن المتقدم (محارق + ورود)
         function startCanvasAnimation() {
             const canvas = document.getElementById('celebration-canvas');
             const ctx = canvas.getContext('2d');
@@ -219,9 +222,8 @@
 
             class Particle {
                 constructor(x, y, type) {
-                    this.x = x; this.y = y; this.type = type; // 'firework' or 'rose'
+                    this.type = type; this.x = x; this.y = y;
                     if (this.type === 'firework') {
-                        // انفجار دائري سريع للمحارق
                         const angle = Math.random() * Math.PI * 2;
                         const speed = Math.random() * 8 + 4;
                         this.speedX = Math.cos(angle) * speed;
@@ -230,7 +232,6 @@
                         this.color = fireworkColors[Math.floor(Math.random() * fireworkColors.length)];
                         this.alpha = 1; this.decay = Math.random() * 0.02 + 0.015;
                     } else {
-                        // ورود تتساقط بنعومة وتتأرجح
                         this.speedX = Math.random() * 2 - 1;
                         this.speedY = Math.random() * 2 + 1.5;
                         this.size = Math.random() * 10 + 6;
@@ -241,7 +242,7 @@
                 }
                 update() {
                     if (this.type === 'firework') {
-                        this.x += this.speedX; this.y += this.speedY; this.speedY += 0.1; // جاذبية خفيفة
+                        this.x += this.speedX; this.y += this.speedY; this.speedY += 0.1;
                         this.alpha -= this.decay;
                     } else {
                         this.y += this.speedY; this.swingAngle += this.swing;
@@ -252,20 +253,17 @@
                 draw() {
                     ctx.save(); ctx.globalAlpha = this.alpha; ctx.fillStyle = this.color;
                     if (this.type === 'rose') {
-                        // رسم بتلة وردة رومانسية
                         ctx.beginPath(); ctx.moveTo(this.x, this.y);
                         ctx.bezierCurveTo(this.x - this.size/2, this.y - this.size/2, this.x - this.size, this.y + this.size/3, this.x, this.y + this.size);
                         ctx.bezierCurveTo(this.x + this.size, this.y + this.size/3, this.x + this.size/2, this.y - this.size/2, this.x, this.y);
                         ctx.fill();
                     } else {
-                        // رسم شظايا المحارق
                         ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
                     }
                     ctx.restore();
                 }
             }
 
-            // توليد طلقات المحارق بكثافة في البداية
             const fireworkLaunch = setInterval(() => {
                 if (animationPhase !== 'fireworks') { clearInterval(fireworkLaunch); return; }
                 const expX = Math.random() * canvas.width;
@@ -273,7 +271,6 @@
                 for (let i = 0; i < 60; i++) particles.push(new Particle(expX, expY, 'firework'));
             }, 500);
 
-            // توليد تساقط الورود المستمر
             const roseLaunch = setInterval(() => {
                 if (animationPhase === 'roses') {
                     particles.push(new Particle(Math.random() * canvas.width, -20, 'rose'));
