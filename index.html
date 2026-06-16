@@ -77,7 +77,15 @@
         #countdown { font-size: 24px; font-weight: 800; color: #d63384; word-spacing: 5px; }
         .countdown-title { margin-top: 0; color: #d63384; font-weight: 700; direction: rtl; margin-bottom: 10px; }
 
-        /* حاوية الفيديو */
+        /* الأزرار والفيديو */
+        .btn-container { text-align: center; margin-top: 30px; position: relative; z-index: 100; }
+        .btn {
+            background: linear-gradient(45deg, #d63384, #ff4d94); color: white;
+            padding: 16px 45px; border: none; border-radius: 35px; font-size: 20px; font-weight: 700;
+            cursor: pointer; box-shadow: 0 6px 22px rgba(214, 51, 132, 0.4); transition: 0.3s;
+        }
+        .btn:hover { transform: scale(1.06); box-shadow: 0 8px 28px rgba(214, 51, 132, 0.5); }
+
         #video-container { display: none; margin-top: 35px; text-align: center; position: relative; z-index: 100; animation: fadeIn 1.2s; }
         video { width: 100%; max-width: 650px; border-radius: 25px; border: 6px solid white; box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
 
@@ -90,7 +98,6 @@
 </head>
 <body>
 
-    <!-- شاشة القفل والعداد المدمج -->
     <div id="lock-screen">
         <div class="lock-box" id="input-box">
             <div class="heart-pulse">❤️</div>
@@ -99,13 +106,11 @@
             <input type="password" id="passwordInput" placeholder="*******" maxlength="10">
             <button onclick="checkPassword()">افتحي المفاجأة ❤️</button>
         </div>
-        <!-- عداد الانتقال 3 2 1 -->
         <div id="transition-countdown">3</div>
     </div>
 
     <canvas id="celebration-canvas"></canvas>
 
-    <!-- المحتوى الرئيسي -->
     <div id="main-content">
         <div class="message-box">
             <h1>إلى حلالي، إلى زوجتي، وأميرة داري.. إلى حبيبتي حنان ❤️</h1>
@@ -113,11 +118,10 @@
             <p>يا حنان، كي نغمض عيني ونشوف كيفاش لحقنا لهذي الليلة، نتفكر هذاك النهار اللي تبدلت فيه حياتي، في 18 مارس 2023. هذاك النهار اللي عرفتك فيه، حسيت باللي ربي بعثلي النور اللي كان ناقص في طريقي. ومن هذاك الوقت، وأنا حاطك في عيني، وكنت راجل معاك ومع نفسي كي قررت ندخل من الباب الواسع، وفي 08 سبتمبر 2023 جيت وطلبت يدك من باباك، وكنت أسعد إنسان في الدنيا كي وافقو وعطاوني أغلى جوهرة عندهم. زادت فرحتنا وكبرت مسؤوليتنا في 19 أوت 2024 نهار خطبتنا، واليوم.. في هذي الليلة، ليلة 6 سبتمبر 2026، رانا كملنا نص ديننا، والحمد لله اللي جمعنا في الحلال.</p>
             <p>حبيبتي، الرحلة اللي جازتنا كانت فيها أيام حلوة وأيام فيها ضغط وتخمام، وحنا في الأخير بشر، نغلطو ونصيبو. على هذي، وفي هذي الليلة اللي تعتبر بداية عمر جديد، حاب نقولك من أعماق قلبي: إذا في يوم من الأيام، من نهار عرفتك لليوم، غلطت معاك، ولا قلت كلمة جرحتك بلا ما نقصد، ولا زيرت عليك في كاش موقف.. راني نطلب منك السماح، ونتمنى قلبك الأبيض يسامحني. وفي المقابل، راني نشهد ربي ونشهدك، باللي إذا نتي غلطتي في حقي كاش نهار، بقصد ولا بلا قصد، راكي مسامحة دنيا وآخرة. قلبي راهو صافي حليب من جهتك، وما فيه غير الحب ليك.</p>
             <p>من هذي اللحظة، ومن هذي الليلة بالذات، حاب نفتحو صفحة بيضاء نقية.. صفحة ما فيهاش الماضي وعتابو، فيها غير أنا ونتي، ومستقبلنا اللي راح نبنيوه مع بعض.</p>
-            <p>يا حنان، راني حابك تكوني ديك الزوجة الصالحة، المرأة اللي تملالي عيني وداري. كي نقولك حابك تسمعلي هدرتي وتكوني طائعة وتحت أمري، مانيش نقولها باش نفرض قوة ولا تسلط, حاشا.. راني نقولها لأنو دارنا لازم تتأسس على الاحترام والكلمة الواحدة، ولأنو الراجل كي يلقى مرتو تحترمو وتكبر بيه وتسمع كلامو في طاعة ربي، يحطها تاج فوق راسو، ويفديها بروحه, ويخليها سيدة النساء.</p>
+            <p>يا حنان، راني حابك تكوني ديك الزوجة الصالحة، المرأة اللي تملالي عيني وداري. كي نقولك حابك تسمعلي هدرتي وتكوني طائعة وتحت أمري، مانيش نقولها باش نفرض قوة ولا تسلط، حاشا.. راني نقولها لأنو دارنا لازم تتأسس على الاحترام والكلمة الواحدة، ولأنو الراجل كي يلقى مرتو تحترمو وتكبر بيه وتسمع كلامو في طاعة ربي، يحطها تاج فوق راسو، ويفديها بروحه, ويخليها سيدة النساء.</p>
             <p>أنا راني هنا باش نكون ظهرك اللي تتسندي عليه، سترك، وحاميك في هذي الدنيا. ونتي كونيلي السكن، الراحة، والقلب الحنين اللي نلقاه كي نرجع عيان من برا. كونيلي الزوجة اللي تحفظني في مالي وعرضي، واللي تبني معايا عائلة صالحة يرضى عليها ربي.</p>
             <p>راني فخور بيك، وفرحان بزاف كي راكي مرتي وحلالي. ربي يبارك لنا في هذي الليلة، ويبارك علينا، ويجمع بيناتنا في خير.</p>
 
-            <!-- العداد التنازلي -->
             <div class="countdown-container">
                 <h3 class="countdown-title">⏱️ المتبقي على ليلة عمرنا:</h3>
                 <div id="countdown">
@@ -131,7 +135,10 @@
             <div class="signature">نحـبك يا نوارة حيـاتي، وألف مبروك علينـا 💖</div>
         </div>
 
-        <!-- حاوية الفيديو (تفتح تلقائياً في السيكونس) -->
+        <div class="btn-container" id="btn-wrapper">
+            <button class="btn" onclick="showVideo()">إضغطي هنا لرؤية ذكرياتنا 🎬</button>
+        </div>
+
         <div id="video-container">
             <video id="myVideo" controls playsinline>
                 <source src="video.mp4" type="video/mp4">
@@ -175,23 +182,25 @@
             }, 1000);
         }
 
-        // تشغيل المحارق ثم الورود والمحتوى
+        // تشغيل المحارق ثم الورود والمحتوى بدون فيديو تلقائي
         function triggerCelebrationFlow() {
             animationPhase = 'fireworks';
             startCanvasAnimation();
 
-            // المحارق تطردق لمدة 3.5 ثانية ثم تقلب ورود ويفتح الميساج والفيديو
+            // المحارق تطردق لمدة 3.5 ثانية ثم تقلب ورود ويفتح الميساج وبوتون الفيديو
             setTimeout(() => {
                 animationPhase = 'roses';
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
-                document.getElementById('video-container').style.display = 'block';
-                
-                const vid = document.getElementById('myVideo');
-                if(vid) {
-                    vid.play().catch(err => console.log("القرص المدمج للمتصفح طلب تفاعل لتشغيل الصوت تلقائياً."));
-                }
             }, 3500);
+        }
+
+        // دالة إظهار وتشغيل الفيديو عند الضغط على الزر
+        function showVideo() {
+            document.getElementById('btn-wrapper').style.display = 'none';
+            document.getElementById('video-container').style.display = 'block';
+            const vid = document.getElementById('myVideo');
+            if(vid) vid.play();
         }
 
         // عداد ليلة العمر
