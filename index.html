@@ -49,6 +49,10 @@
             margin-bottom: 20px;
             font-size: 24px;
         }
+        .lock-box p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
         .lock-box input {
             width: 100%;
             padding: 12px 20px;
@@ -188,15 +192,17 @@
 </head>
 <body>
 
+    <!-- شاشة القفل -->
     <div id="lock-screen">
         <div class="lock-box">
             <h2>🔒 مفاجأة خاصة لزوجتي حنان</h2>
-            <p>أدخلي تاريخ ليلتنا المباركة لرؤية المفاجأة (اليوم والشهر والسنة):</p>
-            <input type="password" id="passwordInput" placeholder="DDMMYYYY" maxlength="8">
+            <p>أدخلي كلمة السر (راح تلقايها ميساج في تليفونك):</p>
+            <input type="password" id="passwordInput" placeholder="أكتبي هنا...">
             <button onclick="checkPassword()">افتحي المفاجأة ❤️</button>
         </div>
     </div>
 
+    <!-- المحتوى الرئيسي بعد فتح القفل -->
     <canvas id="celebration-canvas"></canvas>
 
     <div id="main-content">
@@ -211,7 +217,7 @@
             
             <p>من هذي اللحظة، ومن هذي الليلة بالذات، حاب نفتحو صفحة بيضاء نقية.. صفحة ما فيهاش الماضي وعتابو، فيها غير أنا ونتي، ومستقبلنا اللي راح نبنيوه مع بعض.</p>
             
-            <p>يا حنان، راني حابك تكوني ديك الزوجة الصالحة، المرأة اللي تملالي عيني وداري. كي نقولك حابك تسمعلي هدرتي وتكوني طائعة وتحت أمري، مانيش نقولها باش نفرض قوة ولا تسلط، حاشا.. راني نقولها لأنو دارنا لازم تتأسس على الاحترام والكلمة الواحدة، ولأنو الراجل كي يلقى مرتو تحترمو وتكبر بيه وتسمع كلامو في طاعة ربي، يحطها تاج فوق راسو، ويفديها بروحه، ويخليها سيدة النساء.</p>
+            <p>يا حنان، راني حابك تكوني ديك الزوجة الصالحة، المرأة اللي تملالي عيني وداري. كي نقولك حابك تسمعلي هدرتي وتكوني طائعة وتحت أمري، مانيش نقولها باش نفرض قوة ولا تسلط، حاشا.. راني نقولها لأنو دارنا لازم تتأسس على الاحترام والكلمة الواحدة، ولأنو الراجل كي يلقى مرتو تحترمو وتكبر بيه وتسمع كلامو في طاعة ربي، يحطها تاج فوق راسو, ويفديها بروحه، ويخليها سيدة النساء.</p>
             
             <p>أنا راني هنا باش نكون ظهرك اللي تتسندي عليه، سترك، وحاميك في هذي الدنيا. ونتي كونيلي السكن، الراحة، والقلب الحنين اللي نلقاه كي نرجع عيان من برا. كونيلي الزوجة اللي تحفظني في مالي وعرضي، واللي تبني معايا عائلة صالحة يرضى عليها ربي.</p>
             
@@ -220,10 +226,12 @@
             <div class="signature">نحـبك يا نوارة حيـاتي، وألف مبروك علينـا 💖</div>
         </div>
 
+        <!-- زر الانتقال للفيديو ذكرياتنا -->
         <div class="btn-container" id="btn-wrapper">
             <button class="btn" onclick="showVideo()">إضغطي هنا لرؤية ذكرياتنا 🎬</button>
         </div>
 
+        <!-- قسم الفيديو -->
         <div id="video-container">
             <video id="myVideo" controls>
                 <source src="video.mp4" type="video/mp4">
@@ -233,15 +241,15 @@
     </div>
 
     <script>
-        // التحقق من كلمة السر المحددة 06092026
+        // التحقق من كلمة السر المحددة
         function checkPassword() {
             const input = document.getElementById('passwordInput').value;
-            if (input === '06092026') {
+            if (input === 'tlgayh msg fi tiliphonk') {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
-                startCelebration(); // بدء الألعاب النارية
+                startCelebration(); // بدء الألعاب النارية والقلوب
             } else {
-                alert('كلمة السر خاطئة يا حبيبتي! حاولى مجدداً ❤️');
+                alert('كلمة السر خاطئة يا حبيبتي! حاولي مجدداً ❤️');
             }
         }
 
@@ -297,14 +305,12 @@
                     ctx.globalAlpha = this.alpha;
                     ctx.fillStyle = this.color;
                     if (this.isHeart) {
-                        // رسم قلب صغير
                         ctx.beginPath();
                         ctx.moveTo(this.x, this.y);
                         ctx.bezierCurveTo(this.x - this.size/2, this.y - this.size/2, this.x - this.size, this.y + this.size/3, this.x, this.y + this.size);
                         ctx.bezierCurveTo(this.x + this.size, this.y + this.size/3, this.x + this.size/2, this.y - this.size/2, this.x, this.y);
                         ctx.fill();
                     } else {
-                        // رسم دائرة ألعاب نارية
                         ctx.beginPath();
                         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                         ctx.fill();
@@ -327,7 +333,6 @@
                 particles.push(new Particle(x, y, true));
             }
 
-            // تكرار إطلاق الألعاب النارية والقلوب
             setInterval(createFirework, 1500);
             setInterval(createHeart, 300);
 
