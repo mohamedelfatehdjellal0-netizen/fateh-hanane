@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>هدية زوجتي حنان ❤️</title>
     <style>
-        * { box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+        
+        * { box-sizing: border-box; font-family: 'Cairo', sans-serif; }
         body {
             background-color: #fff0f5;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0; padding: 0; overflow-x: hidden;
             background: linear-gradient(135deg, #ffe6f2 0%, #ffb3d9 100%);
             min-height: 100vh;
         }
         
-        /* شاشة القفل */
+        /* شاشة القفل الرومانسية */
         #lock-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #d63384 0%, #880d1e 100%);
@@ -22,56 +23,82 @@
             z-index: 9999; color: white; text-align: center; padding: 20px;
         }
         .lock-box {
-            background: rgba(255, 255, 255, 0.15); padding: 40px 30px; border-radius: 20px;
-            backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            max-width: 400px; width: 100%; border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.18); padding: 40px 30px; border-radius: 25px;
+            backdrop-filter: blur(12px); box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+            max-width: 420px; width: 100%; border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeIn 1s ease-out;
         }
+        .heart-pulse {
+            font-size: 55px;
+            animation: pulse 1.2s infinite;
+            margin-bottom: 15px;
+        }
+        .lock-box h2 { font-weight: 900; font-size: 24px; margin-bottom: 10px; }
+        .lock-box p { font-size: 17px; margin-bottom: 25px; opacity: 0.95; }
         .lock-box input {
-            width: 100%; padding: 12px 20px; border-radius: 25px; border: none;
+            width: 100%; padding: 14px 20px; border-radius: 30px; border: 2px solid transparent;
             margin-bottom: 20px; font-size: 18px; text-align: center; outline: none;
+            transition: 0.3s; font-weight: bold; color: #444;
         }
+        .lock-box input:focus { border-color: #ffb3d9; box-shadow: 0 0 15px rgba(255,179,217,0.6); }
         .lock-box button {
-            background-color: #fff; color: #d63384; padding: 12px 35px;
-            border: none; border-radius: 25px; font-size: 18px; font-weight: bold; cursor: pointer;
+            background: #fff; color: #d63384; padding: 12px 40px;
+            border: none; border-radius: 30px; font-size: 18px; font-weight: 700; cursor: pointer;
+            transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
+        .lock-box button:hover { transform: scale(1.05); background-color: #ffe6f2; }
 
         /* المحتوى والرسالة */
         #main-content { display: none; position: relative; padding: 40px 20px; max-width: 800px; margin: 0 auto; }
         #celebration-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99; }
+        
         .message-box {
-            background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.15); margin-bottom: 30px;
-            border: 2px solid #ffb3d9; text-align: right; line-height: 1.8; color: #4a4a4a;
-            position: relative; z-index: 100;
+            background: rgba(255, 255, 255, 0.97); padding: 45px; border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.18); margin-bottom: 30px;
+            border: 2px solid #ffb3d9; text-align: right; line-height: 2; color: #444;
+            position: relative; z-index: 100; animation: slideUp 1.2s ease-out;
         }
-        .message-box h1 { color: #d63384; text-align: center; border-bottom: 2px dashed #ffb3d9; padding-bottom: 15px; }
-        .signature { text-align: center; font-size: 22px; font-weight: bold; color: #d63384; margin-top: 30px; }
+        .message-box h1 { 
+            color: #d63384; text-align: center; font-weight: 900; font-size: 26px;
+            border-bottom: 2px dashed #ffb3d9; padding-bottom: 20px; margin-top: 0;
+        }
+        .message-box p { font-size: 18px; margin-bottom: 22px; text-align: justify; }
+        .signature { text-align: center; font-size: 24px; font-weight: 900; color: #d63384; margin-top: 35px; }
 
-        /* العداد التنازلي */
+        /* العداد التنازلي الأنيق */
         .countdown-container {
-            background: #ffe6f2; padding: 15px; border-radius: 15px; text-align: center;
-            margin: 25px 0; border: 1px dashed #d63384; direction: ltr;
+            background: linear-gradient(45deg, #ffe6f2, #fff0f5); padding: 20px; border-radius: 20px; text-align: center;
+            margin: 30px 0; border: 2px dashed #d63384; direction: ltr; box-shadow: inset 0 0 10px rgba(214,51,132,0.05);
         }
-        #countdown { font-size: 22px; font-weight: bold; color: #d63384; }
+        #countdown { font-size: 24px; font-weight: 800; color: #d63384; word-spacing: 5px; }
+        .countdown-title { margin-top: 0; color: #d63384; font-weight: 700; direction: rtl; margin-bottom: 10px; }
 
         /* الأزرار والفيديو */
         .btn-container { text-align: center; margin-top: 30px; position: relative; z-index: 100; }
         .btn {
             background: linear-gradient(45deg, #d63384, #ff4d94); color: white;
-            padding: 15px 40px; border: none; border-radius: 30px; font-size: 20px; cursor: pointer;
+            padding: 16px 45px; border: none; border-radius: 35px; font-size: 20px; font-weight: 700;
+            cursor: pointer; box-shadow: 0 6px 22px rgba(214, 51, 132, 0.4); transition: 0.3s;
         }
-        #video-container { display: none; margin-top: 30px; text-align: center; position: relative; z-index: 100; }
-        video { width: 100%; max-width: 650px; border-radius: 20px; border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .btn:hover { transform: scale(1.06); box-shadow: 0 8px 28px rgba(214, 51, 132, 0.5); }
+        
+        #video-container { display: none; margin-top: 35px; text-align: center; position: relative; z-index: 100; animation: fadeIn 1s; }
+        video { width: 100%; max-width: 650px; border-radius: 25px; border: 6px solid white; box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
+
+        /* الأنميشن */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.12); } 100% { transform: scale(1); } }
     </style>
 </head>
 <body>
 
-    <!-- شاشة القفل -->
     <div id="lock-screen">
         <div class="lock-box">
+            <div class="heart-pulse">❤️</div>
             <h2>🔒 مفاجأة خاصة لزوجتي حنان</h2>
             <p>أدخلي تاريخ أسعد يوم في حياتنا 🔒❤️:</p>
-            <input type="password" id="passwordInput" placeholder="أكتبي هنا..." maxlength="8">
+            <input type="password" id="passwordInput" placeholder="اليومالشهرالسنة (8 أرقام)..." maxlength="8">
             <button onclick="checkPassword()">افتحي المفاجأة ❤️</button>
         </div>
     </div>
@@ -83,15 +110,14 @@
             <h1>إلى حلالي، إلى زوجتي، وأميرة داري.. إلى حبيبتي حنان ❤️</h1>
             <p>في هذه الليلة المباركة، وحنا رانا وحدنا تحت سقف واحد، وفي دارنا اللي طالما حلمنا بيها وبنيناها حبة حبة.. حبيت هذي الكلمات تكون أول حاجة تقرايها وتسمعيها مني وحنا نبدأو حياتنا كزوج وزوجة قدام ربي وقدام الناس.</p>
             <p>يا حنان، كي نغمض عيني ونشوف كيفاش لحقنا لهذي الليلة، نتفكر هذاك النهار اللي تبدلت فيه حياتي، في 18 مارس 2023. هذاك النهار اللي عرفتك فيه، حسيت باللي ربي بعثلي النور اللي كان ناقص في طريقي. ومن هذاك الوقت، وأنا حاطك في عيني، وكنت راجل معاك ومع نفسي كي قررت ندخل من الباب الواسع، وفي 08 سبتمبر 2023 جيت وطلبت يدك من باباك، وكنت أسعد إنسان في الدنيا كي وافقو وعطاوني أغلى جوهرة عندهم. زادت فرحتنا وكبرت مسؤوليتنا في 19 أوت 2024 نهار خطبتنا، واليوم.. في هذي الليلة، ليلة 6 سبتمبر 2026، رانا كملنا نص ديننا، والحمد لله اللي جمعنا في الحلال.</p>
-            <p>حبيبتي، الرحلة اللي جازتنا كانت فيها أيام حلوة وأيام فيها ضغط وتخمام، وحنا في الأخير بشر، نغلطو ونصيبو. على هذي، وفي هذي الليلة اللي تعتبر بداية عمر جديد، حاب نقولك من أعماق قلبي: إذا في يوم من الأيام، من نهار عرفتك لليوم، غلطت معاك، ولا قلت كلمة جرحتك بلا ما نقصد، ولا زيرت عليك في كاش موقف.. راني نطلب منك السماح، ونتمنى قلبك الأبيض يسامحني. وفي المقابل، راني نشهد ربي ونشهدك، باللي إذا نتي غلطتي في حقي كاش نهار، بقصد ولا بلا قصد، راكي مسامحة دنيا وآخرة. قلبي راهو صافي حليب من جهتك، وما فيه غير الحب ليك.</p>
+            <p>حبيبتي، الرحلة اللي جازتنا كانت فيها أيام حلوة وأيام فيها ضغط وتخمام، وحنا في الأخير بشر، نغلطو ونصيبو. على هذي, وفي هذي الليلة اللي تعتبر بداية عمر جديد، حاب نقولك من أعماق قلبي: إذا في يوم من الأيام، من نهار عرفتك لليوم، غلطت معاك، ولا قلت كلمة جرحتك بلا ما نقصد، ولا زيرت عليك في كاش موقف.. راني نطلب منك السماح، ونتمنى قلبك الأبيض يسامحني. وفي المقابل، راني نشهد ربي ونشهدك، باللي إذا نتي غلطتي في حقي كاش نهار، بقصد ولا بلا قصد، راكي مسامحة دنيا وآخرة. قلبي راهو صافي حليب من جهتك، وما فيه غير الحب ليك.</p>
             <p>من هذي اللحظة، ومن هذي الليلة بالذات، حاب نفتحو صفحة بيضاء نقية.. صفحة ما فيهاش الماضي وعتابو، فيها غير أنا ونتي، ومستقبلنا اللي راح نبنيوه مع بعض.</p>
             <p>يا حنان، راني حابك تكوني ديك الزوجة الصالحة، المرأة اللي تملالي عيني وداري. كي نقولك حابك تسمعلي هدرتي وتكوني طائعة وتحت أمري، مانيش نقولها باش نفرض قوة ولا تسلط، حاشا.. راني نقولها لأنو دارنا لازم تتأسس على الاحترام والكلمة الواحدة، ولأنو الراجل كي يلقى مرتو تحترمو وتكبر بيه وتسمع كلامو في طاعة ربي، يحطها تاج فوق راسو، ويفديها بروحه، ويخليها سيدة النساء.</p>
             <p>أنا راني هنا باش نكون ظهرك اللي تتسندي عليه، سترك، وحاميك في هذي الدنيا. ونتي كونيلي السكن، الراحة، والقلب الحنين اللي نلقاه كي نرجع عيان من برا. كونيلي الزوجة اللي تحفظني في مالي وعرضي، واللي تبني معايا عائلة صالحة يرضى عليها ربي.</p>
             <p>راني فخور بيك، وفرحان بزاف كي راكي مرتي وحلالي. ربي يبارك لنا في هذي الليلة، ويبارك علينا، ويجمع بيناتنا في خير.</p>
 
-            <!-- العداد التنازلي -->
             <div class="countdown-container">
-                <h3 style="margin-top:0; color:#d63384; direction: rtl;">⏱️ المتبقي على ليلة عمرنا:</h3>
+                <h3 class="countdown-title">⏱️ المتبقي على ليلة عمرنا:</h3>
                 <div id="countdown">
                     <span id="seconds">00</span> ثانية :
                     <span id="minutes">00</span> دقيقة :
@@ -108,7 +134,6 @@
         </div>
 
         <div id="video-container">
-            <!-- لازم تصغر الفيديو في موقع freeconvert.com باش يفوت في GitHub -->
             <video id="myVideo" controls>
                 <source src="video.mp4" type="video/mp4">
                 متصفحك لا يدعم تشغيل الفيديو.
@@ -117,8 +142,9 @@
     </div>
 
     <script>
+        // تعديل التحقق من كلمة السر إلى 06092026
         function checkPassword() {
-            if (document.getElementById('passwordInput').value === '18/03/2023') {
+            if (document.getElementById('passwordInput').value === '06092026') {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 startCelebration();
@@ -144,7 +170,7 @@
             const distance = weddingDate - now;
             if (distance < 0) {
                 clearInterval(timer);
-                document.querySelector(".countdown-container").innerHTML = "<h3 style='color:#d63384; direction:rtl;'>❤️ اليوم هو ليلة عمرنا.. ربي يجمعنا في الخير ❤️</h3>";
+                document.querySelector(".countdown-container").innerHTML = "<h3 style='color:#d63384; font-weight:800; direction:rtl;'>❤️ اليوم هو ليلة عمرنا.. ربي يجمعنا في الخير والبركة ❤️</h3>";
                 return;
             }
             document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -153,22 +179,22 @@
             document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
         }, 1000);
 
-        // كود الألعاب النارية
+        // كود الاحتفال المطور بالألعاب النارية والقلوب الطائرة
         function startCelebration() {
             const canvas = document.getElementById('celebration-canvas');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
             const particles = [];
-            const colors = ['#ff4d94', '#d63384', '#ffb3d9', '#ffcc00', '#00f2fe'];
+            const colors = ['#ff4d94', '#d63384', '#ffb3d9', '#ffcc00', '#00f2fe', '#fff'];
 
             class Particle {
                 constructor(x, y, isHeart) {
                     this.x = x; this.y = y; this.isHeart = isHeart;
-                    this.size = isHeart ? Math.random() * 10 + 5 : Math.random() * 4 + 1;
+                    this.size = isHeart ? Math.random() * 12 + 6 : Math.random() * 5 + 1.5;
                     this.speedX = Math.random() * 6 - 3;
-                    this.speedY = isHeart ? Math.random() * -3 - 1 : Math.random() * 6 - 3;
+                    this.speedY = isHeart ? Math.random() * -3.5 - 1.5 : Math.random() * 7 - 3.5;
                     this.color = colors[Math.floor(Math.random() * colors.length)];
-                    this.alpha = 1; this.decay = Math.random() * 0.015 + 0.005;
+                    this.alpha = 1; this.decay = Math.random() * 0.012 + 0.004;
                 }
                 update() { this.x += this.speedX; this.y += this.speedY; this.alpha -= this.decay; }
                 draw() {
@@ -186,10 +212,11 @@
             }
 
             setInterval(() => {
-                const x = Math.random() * canvas.width; const y = Math.random() * (canvas.height * 0.6);
-                for (let i = 0; i < 30; i++) particles.push(new Particle(x, y, false));
-            }, 1500);
-            setInterval(() => particles.push(new Particle(Math.random() * canvas.width, canvas.height + 10, true)), 300);
+                const x = Math.random() * canvas.width; const y = Math.random() * (canvas.height * 0.5);
+                for (let i = 0; i < 40; i++) particles.push(new Particle(x, y, false));
+            }, 1200);
+            
+            setInterval(() => particles.push(new Particle(Math.random() * canvas.width, canvas.height + 10, true)), 220);
 
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
